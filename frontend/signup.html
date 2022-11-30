@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup | MY TICKET COUNTER </title>
+    <link rel="shortcut icon" href="./assets/airplane1.jpg">
+    <link rel="stylesheet" href="./css/login.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./signup.js"></script>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav id="navbar" class="">
+        <div class="nav-wrapper">
+            <!-- Navbar Logo -->
+            <div class="logo">
+                <a>Book Tickets</a>
+            </div>
+            <!-- Navbar Links -->
+            <ul id="menu">
+                <li><a href="./login.html">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Login form -->
+    <div class="signup">
+        <span class="signup-text">Create Your Account</span>
+        <form action="signup.php" method="POST" class="signupform" id="signupform">
+            <input type="text" name="name" id="fullname" placeholder="Fullname" required autocomplete="off">
+            <input type="email" name="email" id="email" placeholder="Email" autocomplete="off" required>
+            <input type="text" name="password" id="contact_number" placeholder="Contact Number" required>
+            <input type="Password" name="password" id="password" placeholder="Password" required>
+            <input type="Password" name="password" id="repassword" placeholder="Confirm Password" required>
+            <input type="submit" value="Signup" onclick="runform()">
+        </form>
+    </div>
+</body>
+
+</html>
