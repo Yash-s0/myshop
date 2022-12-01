@@ -285,46 +285,53 @@ def AddFlight():
     logged_in = logged_in_admin["admin_name"]
     print("logged in", logged_in)
 
-    args = request.json
-    flight_name = args.get("flight_name")
-    flight_from = args.get("flight_from")
-    flight_to = args.get("flight_to")
-    flight_class = args.get("flight_class")
-    price = args.get("price")
-    date = args.get("date")
+    if logged_in:
+        args = request.json
+        flight_name = args.get("flight_name")
+        flight_from = args.get("flight_from")
+        flight_to = args.get("flight_to")
+        flight_class = args.get("flight_class")
+        price = args.get("price")
+        date = args.get("date")
 
-    flight = (
-        db.query(Flights)
-        .filter_by(
+        flight = (
+            db.query(Flights)
+            .filter_by(
+                flight_name=flight_name,
+                flight_from=flight_from,
+                flight_to=flight_to,
+                price=price,
+                date=date,
+            )
+            .first()
+        )
+
+        if flight:
+            return {
+                "success": False,
+                "message": "Flight already added.",
+            }, 409
+
+        new_flight = Flights(
             flight_name=flight_name,
             flight_from=flight_from,
             flight_to=flight_to,
+            flight_class=flight_class,
             price=price,
             date=date,
         )
-        .first()
-    )
 
-    if flight:
+        db.add(new_flight)
+        db.commit()
+        db.close()
+
+        return {"success": True, "message": "Flight Added"}
+
+    else:
         return {
             "success": False,
-            "message": "Flight already added.",
-        }, 409
-
-    new_flight = Flights(
-        flight_name=flight_name,
-        flight_from=flight_from,
-        flight_to=flight_to,
-        flight_class=flight_class,
-        price=price,
-        date=date,
-    )
-
-    db.add(new_flight)
-    db.commit()
-    db.close()
-
-    return {"success": True, "message": "Flight Added"}
+            "message": "You are not a admin. Only Admin can add flights",
+        }
 
 
 # See Flights

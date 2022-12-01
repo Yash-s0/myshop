@@ -211,3 +211,84 @@ body {
         0 0 50px #03e9f4,
         0 0 100px #03e9f4;
 }
+
+.login-box .inline-input {
+    position: relative;
+}
+
+.login-box .inline-input .input-1 {
+    width: 48%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+    display: block;
+}
+
+.login-box .inline-input .input-2 {
+    width: 48%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+    display: block;
+}
+
+form {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.inline-input>.input-1 {
+    max-width: 130px;
+    float: left;
+    margin-right: 30px;
+}
+
+.inline-input>.input-2 {
+    float: right;
+}
+
+.login-box .inline-input .label-1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.login-box .inline-input .label-2 {
+    position: absolute;
+    top: 0;
+    left: 1;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.login-box .inline-input .input-1:focus~.label-1 {
+    top: -20px;
+    left: 0;
+    color: #03e9f4;
+    font-size: 12px;
+}
+
+.login-box .inline-input .input-2:focus~.label-2 {
+    top: -20px;
+    left: 1;
+    color: #03e9f4;
+    font-size: 12px;
+}

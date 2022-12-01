@@ -7,7 +7,7 @@ const LoginAdmin = (admin) => {
             if (loginadmin_["success"] == true) {
                 setCookie("token", loginadmin_["bearer_token"], 1)
                 alert("LOGGED IN ADMIN")
-                window.location.href = "./index.html"
+                window.location.href = "./add-flight.html"
                 console.log(getCookie("token"))
             }
 
