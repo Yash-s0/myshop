@@ -5,9 +5,8 @@ const createUser = (user) => {
         .then(response => {
             const addedUser = response.data;
             console.log(`POST: user is added`, addedUser);
-            alert(response)
             console.log(user)
-            // window.location.href = "./login.html"
+            window.location.href = "./login.html"
         })
         .catch(function (error) {
             if (error.response) {
@@ -22,7 +21,6 @@ function runform() {
 
     const formEvent = form.addEventListener('submit', event => {
         event.preventDefault();
-
         const fullname = document.querySelector('#fullname').value;
         const email = document.querySelector('#email').value;
         const contact_number = document.querySelector('#contact_number').value;

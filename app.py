@@ -353,11 +353,12 @@ def SeeFlights():
     # USER LOGGED IN
 
     response = list()
-    url_data = db.query(Flights).all()
-    for row in url_data:
+    flight_data = db.query(Flights).all()
+    for row in flight_data:
         data = row._asdict()
+        del data["flight_id"]
+        del data["price"]
         response.append(data)
-
     return response
 
 

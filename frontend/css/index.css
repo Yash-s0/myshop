@@ -3,10 +3,21 @@
     padding: 0;
 }
 
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(#141e30, #243b55);
+}
+
 /* Styling all flights table */
 table {
     border-collapse: collapse;
     width: 100%;
+    color: rgb(188, 186, 186);
 }
 
 .table-inside {
@@ -32,7 +43,7 @@ td {
 
 /* Navbar */
 #navbar {
-    background-color: #3b75ab;
+    background-color: #141e30;
     color: rgb(255, 255, 255);
     position: fixed;
     top: 0;
@@ -129,7 +140,9 @@ p {
     text-align: center;
     margin: 100px 0px 30px;
     font-size: 25px;
+    color: rgb(188, 186, 186);
 }
+
 
 a {
     color: inherit;
@@ -137,6 +150,3 @@ a {
     font-size: inherit;
     text-decoration: none;
 }
-
-
-/* TABLE ANIMATION CHECK */

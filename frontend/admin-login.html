@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flight Booking | MY TICKET COUNTER</title>
+    <title>Signup | MY TICKET COUNTER </title>
     <link rel="shortcut icon" href="./assets/airplane1.jpg">
-    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/admin.css">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="./index.js"></script>
+    <script src="./admin-login.js"></script>
 </head>
 
-
 <body>
+
     <!-- Navbar -->
     <nav id="navbar" class="">
         <div class="nav-wrapper">
@@ -29,10 +29,24 @@
         </div>
     </nav>
 
-    <p> Scheduled Flights </p>
+    <!-- Login form -->
+    <div class="login-box">
+        <h2>Admin Login</h2>
+        <form>
 
-    <div class="table-inside">
-        <div class="showData" id="showData"></div>
+            <div class="user-box">
+                <input type="name" name="name" id="admin_name" autocomplete="off" required>
+                <label>Admin Name</label>
+            </div>
+
+            <div class="user-box">
+                <input type="Password" name="password" id="password" required>
+                <label>Password</label>
+            </div>
+
+            <input class="button" type="submit" value="Signup" onclick="Loginform()">
+
+        </form>
     </div>
 </body>
 
