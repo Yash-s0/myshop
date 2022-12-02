@@ -294,12 +294,19 @@ def AddFlight():
         price = args.get("price")
         date = args.get("date")
 
+        # uppercase details to add in database
+        airline = airline.upper()
+        flight_from = flight_from.upper()
+        flight_to = flight_to.upper()
+        flight_class = flight_class.upper()
+
         flight = (
             db.query(Flights)
             .filter_by(
                 airline=airline,
                 flight_from=flight_from,
                 flight_to=flight_to,
+                flight_class=flight_class,
                 price=price,
                 date=date,
             )

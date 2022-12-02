@@ -1,38 +1,3 @@
-// const createFlight = (flight) => {
-//     axios.post('http://127.0.0.1:5000/register', flight)
-//         .then(response => {
-//             const addedflight = response.data;
-//             console.log(`POST: flight is added`, addedflight);
-//             console.log(flight)
-//             window.location.href = "./login.html"
-//         })
-//         .catch(function (error) {
-//             if (error.response) {
-//                 alert(error.response.data["message"]);
-//             }
-//         });
-// };
-
-
-// function runform() {
-//     const form = document.querySelector('form');
-
-//     const formEvent = form.addEventListener('submit', event => {
-//         event.preventDefault();
-//         const fullname = document.querySelector('#fullname').value;
-//         const email = document.querySelector('#email').value;
-//         const contact_number = document.querySelector('#contact_number').value;
-//         const password = document.querySelector('#password').value;
-//         const repassword = document.querySelector('#repassword').value;
-//         console.log(fullname, email, contact_number, password, repassword)
-//         const flight = { fullname, email, contact_number, password };
-//         createFlight(flight);
-
-//     });
-// }
-
-
-
 // Get cookie
 function getCookie(name) {
     var nameEQ = name + "=";
@@ -45,7 +10,6 @@ function getCookie(name) {
     return null;
 }
 
-//convert any url
 function addFlight(flight) {
     let config = {
         headers: {
@@ -55,26 +19,23 @@ function addFlight(flight) {
     }
     axios.post('http://127.0.0.1:5000/add-flight', flight, config)
         .then(response => {
-            short_url = response
-            console.log(short_url.data)
-            alert(response.data)
-            // if (short_url.data["message"] == "User already searched for this URL.") {
-            //     document.getElementById("main-form").innerHTML = "<br><br><h3>" + (short_url.data["message"]) + "</h3>"
-            //     element = document.querySelector('h3');
-            //     element.style.color = 'orange';
-            // }
-            // else {
-            //     document.getElementById("changeh2").innerHTML = "<h3>" + (short_url.data["message"]) + "</h3>"
-            //     element = document.getElementById('changeh2');
-            //     element.style.color = 'orange';
-            //     document.getElementById("postdata").innerHTML = "<h3>" + (short_url.data["short_link"]) + "</h3>"
-            //     element = document.getElementById('postdata');
-            //     element.style.color = 'orange';
-
-            // }
+            console.log(response.data["message"])
+            if (response.data["success"] == true) {
+                alert(response.data["message"])
+            }
+            else if (response.data["message"] == "Session expried, please login") {
+                alert("Restricted for Admin Only / Session expried, please login.")
+            }
+            else if (response.data["message"] == "Signature expired. Please log in again.") {
+                alert("Signature expired. Please log in again.")
+            }
+            else if (response.data["message"] == "Flight already added.") {
+                alert("Flight already added...")
+            }
         })
         .catch(function (error) {
-            console.log(error);
+            console.log(error.response.data["message"]);
+            alert(error.response.data["message"]);
         });
 }
 
