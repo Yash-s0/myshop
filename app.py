@@ -344,36 +344,58 @@ def AddFlight():
 # See Flights
 @app.post("/")
 def SeeFlights():
-    # token = request.headers.get("Authorization")
-    # if token is None:
-    #     return {"success": False, "message": "Session expried, please login"}, 404
-
-    # bearer_token = token.split("Bearer ")[1]
-    # # print(bearer_token)
-    # verify = decode_auth_token(bearer_token)
-    # print(verify)
-    # if "success" in verify and verify["success"] is False:
-    #     return verify
 
     db = Session()
-    # admin = db.query(Admin).filter_by(admin_name=verify["fullname"]).first()
-    # data = admin._asdict()
-    # del data["password"]
-    # del data["id"]
-    # logged_in_admin = data
-    # logged_in = logged_in_admin["admin_name"]
-    # print("logged in", logged_in)
 
-    # USER LOGGED IN
+    # response = list()
+    # flight_data = db.query(Flights).all()
+    # for row in flight_data:
+    #     data = row._asdict()
+    #     del data["flight_id"]
+    #     del data["price"]
+    #     response.append(data)
+    # return response
+
+    args = request.json
+    flight_from = args.get("flight_from")
+    flight_to = args.get("flight_to")
+    date = args.get("date")
 
     response = list()
-    flight_data = db.query(Flights).all()
-    for row in flight_data:
-        data = row._asdict()
-        del data["flight_id"]
-        del data["price"]
-        response.append(data)
-    return response
+    if flight_from and flight_to and date:
+        flights = (
+            db.query(Flights)
+            .filter_by(flight_from=flight_from, flight_to=flight_to, date=date)
+            .all()
+        )
+        for row in flights:
+            data = row._asdict()
+            del data["price"]
+            del data["flight_id"]
+            response.append(data)
+        return {"success": True, "response": response}
+
+    elif flight_from and flight_to:
+        flights = (
+            db.query(Flights)
+            .filter_by(flight_from=flight_from, flight_to=flight_to)
+            .all()
+        )
+        for row in flights:
+            data = row._asdict()
+            del data["price"]
+            del data["flight_id"]
+            response.append(data)
+        return {"success": True, "response": response}
+
+    elif flight_from:
+        flights = db.query(Flights).filter_by(flight_from=flight_from).all()
+        for row in flights:
+            data = row._asdict()
+            del data["price"]
+            del data["flight_id"]
+            response.append(data)
+        return {"success": True, "response": response}
 
 
 if __name__ == "__main__":

@@ -29,11 +29,25 @@
         </div>
     </nav>
 
-    <p> Scheduled Flights </p>
+    <p> Search Flights </p>
 
     <div class="table-inside">
         <div class="showData" id="showData"></div>
     </div>
+
+
+    <form>
+        <div class="search">
+            <input class="input-1" id="flight_from" autocomplete="off" type="text" placeholder="Flight From . . . "
+                required>
+            <input class="input-2" id="flight_to" autocomplete="off" type="text" placeholder="Flight To . . . ">
+            <input class="input-3" id="date" autocomplete="off" type="text" placeholder="Date (DD-MM-YYY). . . ">
+            <button class="button_data" type="submit" value="Search" onclick="runform()">Search</button>
+        </div>
+    </form>
+
+
+
 </body>
 
 </html>

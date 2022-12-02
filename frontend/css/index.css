@@ -13,7 +13,7 @@ body {
     background: linear-gradient(#141e30, #243b55);
 }
 
-/* Styling all flights table */
+/* ------------------Styling all flights table---------------- */
 table {
     border-collapse: collapse;
     width: 100%;
@@ -41,7 +41,7 @@ td {
 }
 
 
-/* Navbar */
+/* --------------------------Navbar------------------------ */
 #navbar {
     background-color: #141e30;
     color: rgb(255, 255, 255);
@@ -103,7 +103,7 @@ td {
     -webkit-transition: all 1s ease;
 }
 
-/* Animated Bottom Line */
+/* ----------------Animated Bottom Line------------------- */
 #navbar li a:before,
 #navbar li a:after {
     content: '';
@@ -149,4 +149,134 @@ a {
     font-family: inherit;
     font-size: inherit;
     text-decoration: none;
+}
+
+
+/* -------------Search Bar and button design-------------- */
+
+.input-1 {
+    position: absolute;
+    top: 28%;
+    left: 17%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 16px;
+    background: transparent;
+    width: 150px;
+    height: 25px;
+    padding: 10px;
+    border: solid 3px #9A86FD;
+    outline: none;
+    border-radius: 35px;
+    transition: all 0.5s;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 #9A86FD;
+    letter-spacing: 1px;
+}
+
+.input-2 {
+    position: absolute;
+    top: 28%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 16px;
+    background: transparent;
+    width: 150px;
+    height: 25px;
+    padding: 10px;
+    border: solid 3px #9A86FD;
+    outline: none;
+    border-radius: 35px;
+    transition: all 0.5s;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 #9A86FD;
+    letter-spacing: 1px;
+}
+
+.input-3 {
+    position: absolute;
+    top: 28%;
+    left: 82%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 16px;
+    background: transparent;
+    width: 150px;
+    height: 25px;
+    padding: 10px;
+    border: solid 3px #9A86FD;
+    outline: none;
+    border-radius: 35px;
+    transition: all 0.5s;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 #9A86FD;
+    letter-spacing: 1px;
+}
+
+.button_data {
+    position: absolute;
+    top: 39%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    background: transparent;
+    padding: 13px;
+    border: none;
+    outline: none;
+    border-radius: 35px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 #9A86FD;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    transition: all 0.5s;
+}
+
+
+input::placeholder {
+    color: #efefef;
+    opacity: 0.25;
+    transition: opacity 150ms ease-out;
+}
+
+input:focus::placeholder {
+    opacity: 0.50;
+}
+
+input:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 #FFB870;
+}
+
+.button_data:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 #FFB870;
+}
+
+.button_data:focus {
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 #FFB870;
+}
+
+input:focus,
+input:not(:placeholder-shown) {
+    width: 250px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 #FFB870;
+}
+
+
+@media screen and (max-width: 800px) {
+
+    .input-1 {
+        left: 50%;
+        top: 25%;
+    }
+
+    .input-2 {
+        left: 50%;
+        top: 35%;
+    }
+
+    .input-3 {
+        left: 50%;
+        top: 45%;
+    }
+
+    .button_data {
+        top: 55%;
+    }
 }
