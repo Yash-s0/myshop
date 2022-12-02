@@ -7,6 +7,8 @@ window.onload = (flights) => {
 
             if (flights.length == 0) {
                 document.getElementById("showData").innerHTML = "<h1> No Flights Found Currently!!! </h1><br><br>"
+                element = document.getElementById('showData');
+                element.style.color = 'white';
             }
             else {
                 let col = [];

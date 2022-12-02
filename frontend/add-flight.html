@@ -31,27 +31,42 @@
         <h2>Add Flight</h2>
         <form>
             <div class="inline-input">
-                <input class="input-1" type="name" name="name" id="admin_name" autocomplete="off" required>
-                <label class="label-1">One out of two</label>
-                <input class="input-2" type="name" name="name" id="admin_name" autocomplete="off" required>
-                <label class="label-2">two out of two</label>
+                <input class="input-1" type="name" name="name" id="flight_from" autocomplete="off" required>
+                <label class="label-1">From</label>
+                <input class="input-2" type="name" name="name" id="flight_to" autocomplete="off" required>
+                <label class="label-2">To</label>
             </div>
 
             <div class="user-box">
-                <input type="name" name="name" id="admin_name" autocomplete="off" required>
-                <label>Admin Name</label>
+                <input type="name" name="name" id="airline" autocomplete="off" required>
+                <label>Airline</label>
             </div>
 
             <div class="user-box">
-                <input type="Password" name="password" id="password" required>
-                <label>Password</label>
+                <input type="text" name="price" id="price" required>
+                <label>Price</label>
             </div>
-            <input class="button" type="submit" value="Signup" onclick="runform()">
+
+            <div class="user-box">
+                <input type="date" name="date" id="date" required>
+            </div>
+            <div class="user-box">
+                <select type="text" name="flight_class" id="flight_class" required>
+                    <option value="">Class</option>
+                    <option value="Economy">Economy</option>
+                    <option value="Business">Business</option>
+                    <option value="Premium">Premium</option>
+                    <option value="First class">First class</option>
+                </select>
+
+            </div>
+
+            <input class="button" type="submit" value="Add Flight" onclick="runFlight()">
         </form>
     </div>
 </body>
 <link rel="stylesheet" href="./css/add-flight.css">
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="./signup.js"></script>
+<script src="./add-flight.js"></script>
 
 </html>

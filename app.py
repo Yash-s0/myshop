@@ -68,7 +68,7 @@ class Admin(Base):
 class Flights(Base):
     __tablename__ = "flights"
     flight_id = Column(Integer, unique=True, primary_key=True)
-    flight_name = Column(String(200), nullable=False)
+    airline = Column(String(200), nullable=False)
     flight_from = Column(String(200), nullable=False)
     flight_to = Column(String(200))
     flight_class = Column(String(200))
@@ -82,7 +82,7 @@ class Bookings(Base):
     fullname = Column(String(200), nullable=False)
     email = Column(String(100), nullable=False)
     contact_number = Column(Integer, nullable=False)
-    flight_name = Column(String(200), nullable=False)
+    airline = Column(String(200), nullable=False)
     flight_from = Column(String(200), nullable=False)
     flight_to = Column(String(200))
     flight_class = Column(String(200))
@@ -287,7 +287,7 @@ def AddFlight():
 
     if logged_in:
         args = request.json
-        flight_name = args.get("flight_name")
+        airline = args.get("airline")
         flight_from = args.get("flight_from")
         flight_to = args.get("flight_to")
         flight_class = args.get("flight_class")
@@ -297,7 +297,7 @@ def AddFlight():
         flight = (
             db.query(Flights)
             .filter_by(
-                flight_name=flight_name,
+                airline=airline,
                 flight_from=flight_from,
                 flight_to=flight_to,
                 price=price,
@@ -313,7 +313,7 @@ def AddFlight():
             }, 409
 
         new_flight = Flights(
-            flight_name=flight_name,
+            airline=airline,
             flight_from=flight_from,
             flight_to=flight_to,
             flight_class=flight_class,
