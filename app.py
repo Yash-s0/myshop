@@ -371,8 +371,8 @@ def SeeFlights():
         for row in flights:
             data = row._asdict()
             del data["price"]
-            del data["flight_id"]
             response.append(data)
+            print(response)
         return {"success": True, "response": response}
 
     elif flight_from and flight_to:
@@ -384,8 +384,8 @@ def SeeFlights():
         for row in flights:
             data = row._asdict()
             del data["price"]
-            del data["flight_id"]
             response.append(data)
+            print(response)
         return {"success": True, "response": response}
 
     elif flight_from:
@@ -393,8 +393,8 @@ def SeeFlights():
         for row in flights:
             data = row._asdict()
             del data["price"]
-            del data["flight_id"]
             response.append(data)
+            print(response)
         return {"success": True, "response": response}
 
 
