@@ -398,6 +398,85 @@ def SeeFlights():
         return {"success": True, "response": response}
 
 
+#  code to print pdf of booked ticket
+#  need to update a little bit to work in this program
+# from reportlab.lib.pagesizes import A4
+# from reportlab.pdfgen import canvas
+
+
+# canvas = canvas.Canvas("form.pdf", pagesize=A4)
+# canvas.setLineWidth(0.5)
+
+
+# booking_id = "#2337"
+# fullname = "Yash Sharma"
+# email = "yash@gmail.com"
+# contact_number = "7303325661"
+# airline = "Air India"
+# flight_from = "Delhi"
+# flight_to = "Goa"
+# flight_class = "Premium"
+# price = "8000"
+# date = "29-01-2023"
+
+# if flight_class == "Economy":
+#     ticket_price = int(price)
+#     gst = (ticket_price * 5) / 100
+#     gst = str(gst)
+#     print(gst)
+
+# else:
+#     ticket_price = int(price)
+#     gst = (ticket_price * 12) / 100
+#     gst = str(gst)
+#     print(gst)
+
+
+# def titleOfTicket():
+#     canvas.setFont("Vera", 20)
+#     canvas.drawString(500, 770, "Flight Ticket")
+#     canvas.drawString(30, 750, "My Shop Tickets")
+
+
+# def header():
+#     canvas.setFont("Helvetica", 12)
+#     # canvas.drawString(30, 750, "Passenger Name: " + fullname)
+#     canvas.line(30, 740, 580, 740)
+#     canvas.drawString(30, 723, "Flight From")
+#     canvas.line(110, 740, 110, 600)
+#     canvas.drawString(130, 723, "Flight To")
+#     canvas.line(210, 740, 210, 600)
+#     canvas.drawString(230, 723, "Airline")
+#     canvas.line(310, 740, 310, 600)
+#     canvas.drawString(330, 723, "Flight Class")
+#     canvas.line(410, 740, 410, 600)
+#     canvas.drawString(430, 723, "Date")
+#     canvas.line(30, 715, 580, 715)
+
+
+# def content():
+#     canvas.line(30, 740, 580, 740)
+#     canvas.drawString(30, 690, flight_from)
+#     canvas.line(110, 740, 110, 600)
+#     canvas.drawString(130, 690, flight_to)
+#     canvas.line(210, 740, 210, 600)
+#     canvas.drawString(230, 690, airline)
+#     canvas.line(310, 740, 310, 600)
+#     canvas.drawString(330, 690, flight_class)
+#     canvas.line(410, 740, 410, 600)
+#     canvas.drawString(430, 690, date)
+#     canvas.line(30, 715, 580, 715)
+
+#     canvas.drawString(0, 0, gst)
+
+
+# titleOfTicket()
+# header()
+# content()
+
+# canvas.save()
+
+
 if __name__ == "__main__":
     Base.metadata.create_all(dbEngine)
     app.run(debug=True)

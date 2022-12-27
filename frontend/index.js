@@ -1,12 +1,9 @@
-// import $ from "jquery";
-
-
-// window.onload = (flights) => {
 const flightLookup = (flight) => {
     axios.post('http://127.0.0.1:5000/', flight)
         .then(response => {
             avaliable_flights = response.data["response"]
             console.log(avaliable_flights)
+            console.table(avaliable_flights)
             console.log('page is fully loaded');
 
             if (avaliable_flights.length == 0) {
@@ -24,7 +21,7 @@ const flightLookup = (flight) => {
                     }
                 }
                 col.push("Book");
-                // console.log(col)
+                console.log(col)
                 const table = document.createElement("table");
                 let tr = table.insertRow(-1);
                 for (let i = 0; i < col.length; i++) {
@@ -38,10 +35,8 @@ const flightLookup = (flight) => {
 
                     for (let j = 0; j < col.length; j++) {
                         let tabCell = tr.insertCell(-1);
-                        // console.log("HEREEE");
                         // console.log(col[i]);
                         if (col[i] == "Book") {
-                            console.log("FOUND");
                         }
                         tabCell.innerHTML = avaliable_flights[i][col[j]];
                     }
@@ -52,7 +47,6 @@ const flightLookup = (flight) => {
             }
         })
 };
-// };
 
 function searchTable() {
     const form = document.querySelector('form');
