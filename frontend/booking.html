@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Booking | MY TICKET COUNTER</title>
+    <link rel="shortcut icon" href="./assets/airplane1.jpg">
+    <link rel="stylesheet" href="./css/booking.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./booking.js"></script>
+</head>
+
+
+<body>
+    <!-- Navbar -->
+    <nav id="navbar" class="">
+        <div class="nav-wrapper">
+            <!-- Navbar Logo -->
+            <div class="logo">
+                <a href="./index.html">Flight Booking</a>
+            </div>
+            <!-- Navbar Links -->
+            <!-- <ul id="menu">
+                <li><a href="./signup.html">Signup</a></li>
+                <li><a href="./admin-register.html"></a></li>
+            </ul> -->
+        </div>
+    </nav>
+    <!-- <p> Flights Details</p> -->
+
+    <div class="login-box">
+        <h2>Flights Details</h2>
+        <form>
+            <div class="inline-input">
+                <input class="input-1" type="name" name="name" id="flight_from" autocomplete="off" required>
+                <label class="label-1">From</label>
+                <input class="input-2" type="name" name="name" id="flight_to" autocomplete="off" required>
+                <label class="label-2">To</label>
+            </div>
+
+            <div class="user-box">
+                <input type="name" name="name" id="airline" autocomplete="off" required>
+                <label>Airline</label>
+            </div>
+
+            <div class="user-box">
+                <input type="text" name="price" id="price" required>
+                <label>Price</label>
+            </div>
+
+            <div class="user-box">
+                <input type="date" name="date" id="date" required>
+            </div>
+            <div class="user-box">
+                <select type="text" name="flight_class" id="flight_class" required>
+                    <option value="">Class</option>
+                    <option value="Economy">Economy</option>
+                    <option value="Business">Business</option>
+                    <option value="Premium">Premium</option>
+                    <option value="First class">First class</option>
+                </select>
+
+            </div>
+
+            <input class="button" type="submit" value="Book" onclick="runFlight()">
+        </form>
+    </div>
+
+
+</body>
+
+</html>

@@ -1,3 +1,6 @@
+let params = `scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,
+width=1100,height=700,left=100,top=100`;
+
 const flightLookup = (flight) => {
     axios.post('http://127.0.0.1:5000/', flight)
         .then(response => {
@@ -20,7 +23,7 @@ const flightLookup = (flight) => {
                         }
                     }
                 }
-                col.push("Book");
+
                 console.log(col)
                 const table = document.createElement("table");
                 let tr = table.insertRow(-1);
@@ -44,6 +47,21 @@ const flightLookup = (flight) => {
                 const showdata_ = document.getElementById('showData');
                 showdata_.innerHTML = "";
                 showdata_.appendChild(table);
+                var rows = table.getElementsByTagName("tr");
+                for (i = 0; i < rows.length; i++) {
+                    var currentRow = table.rows[i];
+                    var createClickHandler = function (row) {
+                        return function () {
+                            var cell = row.getElementsByTagName("td")[0];
+                            console.log(cell)
+                            var flight_id = cell.parentNode.cells["4"].innerHTML;
+                            console.log(flight_id)
+                            // alert("Flight Id: " + flight_id);
+                            window.open("booking.html", "test", params)
+                        };
+                    };
+                    currentRow.onclick = createClickHandler(currentRow);
+                }
             }
         })
 };
@@ -64,5 +82,7 @@ function searchTable() {
 
     });
 }
+
+
 
 
