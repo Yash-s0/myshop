@@ -392,7 +392,7 @@ def SeeFlights():
         flights = db.query(Flights).filter_by(flight_from=flight_from).all()
         for row in flights:
             data = row._asdict()
-            del data["price"]
+            # del data["price"]
             response.append(data)
             print(response)
         return {"success": True, "response": response}

@@ -1,12 +1,15 @@
-let params = `scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,
-width=1100,height=700,left=100,top=100`;
+var date_filed;
+var flight_class_field;
+var flight_from_field;
+var flight_id_field;
+var flight_to_field;
+var airline_filed;
+var price_filed;
 
 const flightLookup = (flight) => {
     axios.post('http://127.0.0.1:5000/', flight)
         .then(response => {
             avaliable_flights = response.data["response"]
-            console.log(avaliable_flights)
-            console.table(avaliable_flights)
             console.log('page is fully loaded');
 
             if (avaliable_flights.length == 0) {
@@ -24,7 +27,7 @@ const flightLookup = (flight) => {
                     }
                 }
 
-                console.log(col)
+                // console.log(col)
                 const table = document.createElement("table");
                 let tr = table.insertRow(-1);
                 for (let i = 0; i < col.length; i++) {
@@ -39,14 +42,14 @@ const flightLookup = (flight) => {
                     for (let j = 0; j < col.length; j++) {
                         let tabCell = tr.insertCell(-1);
                         // console.log(col[i]);
-                        if (col[i] == "Book") {
-                        }
                         tabCell.innerHTML = avaliable_flights[i][col[j]];
                     }
                 }
                 const showdata_ = document.getElementById('showData');
                 showdata_.innerHTML = "";
                 showdata_.appendChild(table);
+
+                // recognizing clicks on the table
                 var rows = table.getElementsByTagName("tr");
                 for (i = 0; i < rows.length; i++) {
                     var currentRow = table.rows[i];
@@ -54,14 +57,24 @@ const flightLookup = (flight) => {
                         return function () {
                             var cell = row.getElementsByTagName("td")[0];
                             console.log(cell)
-                            var flight_id = cell.parentNode.cells["4"].innerHTML;
-                            console.log(flight_id)
-                            // alert("Flight Id: " + flight_id);
-                            window.open("booking.html", "test", params)
+                            alert(cell)
+                            window.location.href = "http://127.0.0.1:5500/frontend/booking.html";
+
+                            date_filed = cell.parentNode.cells["1"].innerHTML;
+                            console.log(date_filed)
+                            alert("Date: " + date_filed)
+
+                            var date = form.elements.date;
+                            date.value = data.date_filed;
+                            form.submit();
+                            var form = document.getElementById('myForm');
+
                         };
                     };
                     currentRow.onclick = createClickHandler(currentRow);
+
                 }
+
             }
         })
 };
